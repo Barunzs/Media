@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/MovieTube.iml" filepath="$PROJECT_DIR$/MovieTube.iml" group="MovieTube" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="MovieTube/app" />
+      <module fileurl="file://$PROJECT_DIR$/play-services-gcm-17.0.0/play-services-gcm-17.0.0.iml" filepath="$PROJECT_DIR$/play-services-gcm-17.0.0/play-services-gcm-17.0.0.iml" group="MovieTube/play-services-gcm-17.0.0" />
+    </modules>
+  </component>
+</project>
