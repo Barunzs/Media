@@ -1,5 +1,6 @@
 package com.pratima.movietube.repository
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import com.pratima.movietube.api.ApiRequest
 import com.pratima.movietube.api.RetrofitRequest
@@ -7,6 +8,9 @@ import com.pratima.movietube.model.Media
 import kotlinx.coroutines.*
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.Dispatchers.Main
+import kotlinx.serialization.json.Json
+import kotlinx.serialization.json.JsonConfiguration
+import kotlinx.serialization.json.JsonParsingException
 
 class DataRepository {
 
@@ -25,11 +29,16 @@ class DataRepository {
                 super.onActive()
                 job?.let { theJob ->
                     CoroutineScope(IO + theJob).launch {
-                        val user = apiRequest?.getPopularTvShows(query, key)
-                        withContext(Main) {
-                            value = user
-                            theJob.complete()
+                        try {
+                            val user = apiRequest?.getPopularTvShows(query, key)
+                            withContext(Main) {
+                                value = user
+                                theJob.complete()
+                            }
+                        } catch (ex: JsonParsingException) {
+                            Log.d("TAG", "getPopularTvShows JsonParsingException${ex.message}")
                         }
+
                     }
 
                 }
@@ -45,11 +54,16 @@ class DataRepository {
                 super.onActive()
                 job?.let { theJob ->
                     CoroutineScope(IO + theJob).launch {
-                        val user = apiRequest?.getMovieSearchResult(query, key)
-                        withContext(Main) {
-                            value = user
-                            theJob.complete()
+                        try {
+                            val user = apiRequest?.getMovieSearchResult(query, key)
+                            withContext(Main) {
+                                value = user
+                                theJob.complete()
+                            }
+                        } catch (ex: JsonParsingException) {
+                            Log.d("TAG", "getSearchResult JsonParsingException${ex.message}")
                         }
+
                     }
 
                 }
@@ -65,11 +79,16 @@ class DataRepository {
                 super.onActive()
                 job?.let { theJob ->
                     CoroutineScope(IO + theJob).launch {
-                        val user = apiRequest?.getPopularMovies(query, key)
-                        withContext(Main) {
-                            value = user
-                            theJob.complete()
+                        try {
+                            val user = apiRequest?.getPopularMovies(query, key)
+                            withContext(Main) {
+                                value = user
+                                theJob.complete()
+                            }
+                        } catch (ex: JsonParsingException) {
+                            Log.d("TAG", "getMovies JsonParsingException${ex.message}")
                         }
+
                     }
 
                 }

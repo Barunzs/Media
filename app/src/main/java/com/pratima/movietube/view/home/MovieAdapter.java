@@ -38,7 +38,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
         Media currentData = getItem(position);
         Context context = holder.moviePoster.getContext();
         String imgPosterUrl = ApiConstants.MOVIE_IMG_BASE_URL + currentData.getPoster_path();
-        Log.d("imgPosterUrl","imgPosterUrl: " + imgPosterUrl);
+
 
         Glide.with(context).load(imgPosterUrl)
                 .placeholder(R.drawable.ic_app_tube)

@@ -1,9 +1,11 @@
 package com.pratima.movietube.model
 
-import kotlinx.serialization.Serializable
+import android.util.Log
+import kotlinx.serialization.*
+import kotlinx.serialization.internal.StringDescriptor
 
 @Serializable
-data class Media(
+data class Media constructor(
     var id: Int = 0,
     var title: String = "",
     var overview: String = "",
@@ -13,7 +15,18 @@ data class Media(
     var popularity: Float = 0.0f,
     var total_results: Int = 0,
     var poster_path: String = "",
-    var backdrop_path: String = "",
+    var backdrop_path: String? = null,
     var original_title: String = "",
     var original_name: String = ""
-)
+) {
+    @Serializer(forClass = Media::class)
+    companion object : KSerializer<Media> {
+        override val descriptor: SerialDescriptor =
+            StringDescriptor.withName("Media")
+
+        override fun serialize(encoder: Encoder, obj: Media) {
+            Log.d("serialize", "serialize called")
+        }
+
+    }
+}
