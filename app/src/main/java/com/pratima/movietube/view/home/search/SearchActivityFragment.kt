@@ -19,7 +19,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.pratima.movietube.R
-import com.pratima.movietube.model.DataModel
+import com.pratima.movietube.model.Media
 import com.pratima.movietube.view.home.MovieAdapter
 import com.pratima.movietube.view.lttsPlayer.PlayerActivity
 import com.pratima.movietube.viewmodel.MovieViewModel
@@ -36,7 +36,7 @@ class SearchActivityFragment : Fragment(), TextView.OnEditorActionListener {
     private lateinit var mProgressBar: ProgressBar
     private lateinit var mSearchView: EditText
     private lateinit var mAdapter: MovieAdapter
-    private lateinit var mSearchList: List<DataModel>
+    private lateinit var mSearchList: List<Media>
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

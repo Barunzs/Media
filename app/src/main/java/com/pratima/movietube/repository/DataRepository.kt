@@ -3,7 +3,7 @@ package com.pratima.movietube.repository
 import androidx.lifecycle.LiveData
 import com.pratima.movietube.api.ApiRequest
 import com.pratima.movietube.api.RetrofitRequest
-import com.pratima.movietube.model.DataModel
+import com.pratima.movietube.model.Media
 import kotlinx.coroutines.*
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.Dispatchers.Main
@@ -18,9 +18,9 @@ class DataRepository {
         apiRequest = RetrofitRequest.retrofitInstance!!.create(ApiRequest::class.java)
     }
 
-    fun getPopularTvShows(query: String, key: String): LiveData<DataModel> {
+    fun getPopularTvShows(query: String, key: String): LiveData<Media> {
         job = Job()
-        return object : LiveData<DataModel>() {
+        return object : LiveData<Media>() {
             override fun onActive() {
                 super.onActive()
                 job?.let { theJob ->
@@ -38,9 +38,9 @@ class DataRepository {
         }
     }
 
-    fun getSearchResult(query: String, key: String): LiveData<DataModel> {
+    fun getSearchResult(query: String, key: String): LiveData<Media> {
         job = Job()
-        return object : LiveData<DataModel>() {
+        return object : LiveData<Media>() {
             override fun onActive() {
                 super.onActive()
                 job?.let { theJob ->
@@ -58,9 +58,9 @@ class DataRepository {
         }
     }
 
-    fun getMovies(query: String, key: String): LiveData<DataModel> {
+    fun getMovies(query: String, key: String): LiveData<Media> {
         job = Job()
-        return object : LiveData<DataModel>() {
+        return object : LiveData<Media>() {
             override fun onActive() {
                 super.onActive()
                 job?.let { theJob ->

@@ -4,11 +4,11 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import com.pratima.movietube.api.ApiConstants
-import com.pratima.movietube.model.DataModel
+import com.pratima.movietube.model.Media
 import com.pratima.movietube.repository.DataRepository
 
 class TvShowsViewModel(application: Application) : AndroidViewModel(application) {
-    val popularTvShowsData: LiveData<DataModel>
+    val popularTvShowsData: LiveData<Media>
 
     init {
         val tvShowsRepository = DataRepository()

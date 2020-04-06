@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.pratima.movietube.R
 import com.pratima.movietube.viewmodel.TvShowsViewModel
 import androidx.lifecycle.Observer
-import com.pratima.movietube.model.DataModel
+import com.pratima.movietube.model.Media
 import com.pratima.movietube.view.home.MovieAdapter
 
 class TvShowsFragment : Fragment() {
@@ -61,7 +61,7 @@ class TvShowsFragment : Fragment() {
         mRecyclerView?.adapter = mAdapter
 
         mAdapter!!.setOnItemClickListener {
-            showUpdateLevelSheet(it as DataModel)
+            showUpdateLevelSheet(it as Media)
         }
     }
 
@@ -79,7 +79,7 @@ class TvShowsFragment : Fragment() {
             })
     }
 
-    private fun showUpdateLevelSheet(tvShowsInfo: DataModel) {
+    private fun showUpdateLevelSheet(tvShowsInfo: Media) {
         val bottomSheetFragment = TvShowsDetailsBottomSheet(tvShowsInfo)
         bottomSheetFragment.show(activity!!.supportFragmentManager, bottomSheetFragment.tag)
     }

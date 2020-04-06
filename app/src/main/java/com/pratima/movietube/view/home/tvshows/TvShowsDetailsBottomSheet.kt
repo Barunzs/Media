@@ -14,10 +14,10 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.pratima.movietube.R
 import com.pratima.movietube.api.ApiConstants
-import com.pratima.movietube.model.DataModel
+import com.pratima.movietube.model.Media
 import com.pratima.movietube.view.lttsPlayer.PlayerActivity
 
-class TvShowsDetailsBottomSheet(tvShowsInfo: DataModel) : BottomSheetDialogFragment()  {
+class TvShowsDetailsBottomSheet(tvShowsInfo: Media) : BottomSheetDialogFragment()  {
     private val mTvShowsInfo = tvShowsInfo
 
     override fun onCreateView(

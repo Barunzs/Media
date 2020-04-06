@@ -14,11 +14,11 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.pratima.movietube.R
 import com.pratima.movietube.api.ApiConstants
-import com.pratima.movietube.model.DataModel
+import com.pratima.movietube.model.Media
 import com.pratima.movietube.view.lttsPlayer.PlayerActivity
 
 
-class MovieDetailBottomSheet(movieInfo: DataModel) : BottomSheetDialogFragment() {
+class MovieDetailBottomSheet(movieInfo: Media) : BottomSheetDialogFragment() {
     private val mMovieInfo = movieInfo
 
 

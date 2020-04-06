@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.pratima.movietube.R;
 import com.pratima.movietube.api.ApiConstants;
-import com.pratima.movietube.model.DataModel;
+import com.pratima.movietube.model.Media;
 import com.pratima.movietube.view.OnItemClickListener;
 
 import org.jetbrains.annotations.NotNull;
@@ -24,7 +24,7 @@ import java.util.List;
 public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHolder> {
 
     private OnItemClickListener listener;
-    private List<DataModel> mMovieList = new ArrayList<>();
+    private List<Media> mMovieList = new ArrayList<>();
     @NotNull
     @Override
     public MovieViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -35,7 +35,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
 
     @Override
     public void onBindViewHolder(@NonNull MovieViewHolder holder, int position) {
-        DataModel currentData = getItem(position);
+        Media currentData = getItem(position);
         Context context = holder.moviePoster.getContext();
         String imgPosterUrl = ApiConstants.MOVIE_IMG_BASE_URL + currentData.getPoster_path();
         Log.d("imgPosterUrl","imgPosterUrl: " + imgPosterUrl);
@@ -46,7 +46,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
                 .into(holder.moviePoster);
     }
 
-    private DataModel getItem(int position) {
+    private Media getItem(int position) {
         return mMovieList.get(position);
     }
 
@@ -59,7 +59,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
         this.listener = listener;
     }
 
-    public void submitList(@NotNull List<DataModel> movieList) {
+    public void submitList(@NotNull List<Media> movieList) {
         mMovieList.clear();
         mMovieList.addAll(movieList);
         notifyDataSetChanged();

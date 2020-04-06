@@ -2,7 +2,8 @@ package com.pratima.movietube.model
 
 import com.google.gson.annotations.Expose
 
-data class DataModel(
+
+data class Media(
     @Expose
     var id: Int,
     @Expose
@@ -10,7 +11,7 @@ data class DataModel(
     @Expose
     var overview: String,
     @Expose
-    var results: ArrayList<DataModel>,
+    var results: ArrayList<Media>,
     @Expose
     var vote_average: Float,
     @Expose

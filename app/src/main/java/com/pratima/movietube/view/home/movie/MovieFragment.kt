@@ -8,11 +8,10 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.pratima.movietube.R
-import com.pratima.movietube.model.DataModel
+import com.pratima.movietube.model.Media
 import com.pratima.movietube.view.home.MovieAdapter
 import com.pratima.movietube.viewmodel.MovieViewModel
 
@@ -21,7 +20,7 @@ class MovieFragment : Fragment() {
     private lateinit var mMovieViewModel: MovieViewModel
     private var mRecyclerView: RecyclerView? = null
     private var mAdapter: MovieAdapter? = null
-    private  var movieList: List<DataModel> ? = null
+    private  var movieList: List<Media> ? = null
 
 
 
@@ -69,7 +68,7 @@ class MovieFragment : Fragment() {
         mRecyclerView?.adapter = mAdapter
 
         mAdapter!!.setOnItemClickListener {
-            showUpdateLevelSheet(it as DataModel)
+            showUpdateLevelSheet(it as Media)
         }
     }
 
@@ -98,7 +97,7 @@ class MovieFragment : Fragment() {
         })
     }
 
-    private fun showUpdateLevelSheet(movieInfo: DataModel) {
+    private fun showUpdateLevelSheet(movieInfo: Media) {
         val bottomSheetFragment = MovieDetailBottomSheet(movieInfo)
         bottomSheetFragment.show(activity!!.supportFragmentManager, bottomSheetFragment.tag)
     }

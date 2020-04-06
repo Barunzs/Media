@@ -4,13 +4,13 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import com.pratima.movietube.api.ApiConstants
-import com.pratima.movietube.model.DataModel
+import com.pratima.movietube.model.Media
 import com.pratima.movietube.repository.DataRepository
 
 class MovieViewModel(application: Application) : AndroidViewModel(application) {
-    var popularMovieLiveData: LiveData<DataModel>?
+    var popularMovieLiveData: LiveData<Media>?
     private val TAG: String = "SearchViewModel"
-    var searchResponse: LiveData<DataModel>?
+    var searchResponse: LiveData<Media>?
 
     init {
         searchResponse = null
@@ -18,7 +18,6 @@ class MovieViewModel(application: Application) : AndroidViewModel(application) {
         popularMovieLiveData = movieRepository.getMovies(
             ApiConstants.POPULAR_DESC,
             ApiConstants.API_KEY
-
         )
     }
 
