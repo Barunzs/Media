@@ -1,33 +1,19 @@
 package com.pratima.movietube.model
 
-import com.google.gson.annotations.Expose
+import kotlinx.serialization.Serializable
 
-
-data class Media(
-    @Expose
-    var id: Int,
-    @Expose
-    var title: String,
-    @Expose
-    var overview: String,
-    @Expose
-    var results: ArrayList<Media>,
-    @Expose
-    var vote_average: Float,
-    @Expose
-    var vote_count: Int,
-    @Expose
-    var popularity: Float,
-    @Expose
-    var total_results: Int,
-    @Expose
-    var poster_path: String,
-    @Expose
-    var backdrop_path: String,
-    @Expose
-    var original_title: String,
-    @Expose
-    var original_name: String
-) {
-
-}
+@Serializable
+data class Media constructor(
+    var id: Int = 0,
+    var title: String = "",
+    var overview: String = "",
+    var results: ArrayList<Media> = arrayListOf(),
+    var vote_average: Float = 0.0f,
+    var vote_count: Int = 0,
+    var popularity: Float = 0.0f,
+    var total_results: Int = 0,
+    var poster_path: String = "",
+    var backdrop_path: String = "",
+    var original_title: String = "",
+    var original_name: String = ""
+)
