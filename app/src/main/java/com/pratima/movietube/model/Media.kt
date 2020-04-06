@@ -3,7 +3,7 @@ package com.pratima.movietube.model
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class Media constructor(
+data class Media(
     var id: Int = 0,
     var title: String = "",
     var overview: String = "",
