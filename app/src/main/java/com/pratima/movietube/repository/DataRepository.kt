@@ -19,7 +19,7 @@ class DataRepository {
     var job: CompletableJob? = null
 
     init {
-        apiRequest = RetrofitRequest.retrofitInstance!!.create(ApiRequest::class.java)
+        apiRequest = RetrofitRequest.retrofitInstance?.create(ApiRequest::class.java)
     }
 
     fun getPopularTvShows(query: String, key: String): LiveData<Media> {

@@ -2,6 +2,7 @@ package com.pratima.movietube.view.main
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
@@ -15,6 +16,7 @@ class MainActivity : AppCompatActivity() {
 
     private var mTabLayout: TabLayout? = null
     private var mViewPager: ViewPager? = null
+    private val TAG = MainActivity::class.java.canonicalName
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,15 +38,16 @@ class MainActivity : AppCompatActivity() {
 
         mTabLayout!!.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab) {
+                Log.d(TAG,"onTabSelected")
                 mViewPager!!.currentItem = tab.position
             }
 
             override fun onTabUnselected(tab: TabLayout.Tab) {
-
+                Log.d(TAG,"onTabUnselected")
             }
 
             override fun onTabReselected(tab: TabLayout.Tab) {
-
+                Log.d(TAG,"onTabReselected")
             }
         })
     }
